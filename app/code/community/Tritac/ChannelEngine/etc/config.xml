@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Tritac_ChannelEngine>
-            <version>5.0.2</version>
+            <version>5.1.0</version>
         </Tritac_ChannelEngine>
     </modules>
 
@@ -67,6 +67,27 @@
                 </channelengine_order_line_id>
             </sales_convert_order_item>
         </fieldsets>
+
+        <events>
+            <sales_order_shipment_save_after>
+                <observers>
+                    <shipmentsave>
+                        <type>singleton</type>
+                        <class>channelengine/observer</class>
+                        <method>saveShipment</method>
+                    </shipmentsave>
+                </observers>
+            </sales_order_shipment_save_after>
+            <resource_get_tablename>
+                <observers>
+                    <channelengine_composer_autoloader>
+                        <type>singleton</type>
+                        <class>channelengine/loader</class>
+                        <method>addComposerAutoloader</method>
+                    </channelengine_composer_autoloader>
+                </observers>
+            </resource_get_tablename>
+        </events>
     </global>
 
     <default>
@@ -121,24 +142,7 @@
 
     <adminhtml>
         <events>
-            <sales_order_shipment_save_after>
-                <observers>
-                    <shipmentsave>
-                        <type>singleton</type>
-                        <class>channelengine/observer</class>
-                        <method>saveShipment</method>
-                    </shipmentsave>
-                </observers>
-            </sales_order_shipment_save_after>
-            <resource_get_tablename>
-                <observers>
-                    <channelengine_composer_autoloader>
-                        <type>singleton</type>
-                        <class>channelengine/loader</class>
-                        <method>addComposerAutoloader</method>
-                    </channelengine_composer_autoloader>
-                </observers>
-            </resource_get_tablename>
+            
             <!--<core_block_abstract_prepare_layout_before>
                 <observers>
                     <ordergrid_column_append>
@@ -199,16 +203,5 @@
                 </run>
             </channelengine_generate_feed>
         </jobs>
-        <events>
-            <resource_get_tablename>
-                <observers>
-                    <channelengine_composer_autoloader>
-                        <type>singleton</type>
-                        <class>channelengine/loader</class>
-                        <method>addComposerAutoloader</method>
-                    </channelengine_composer_autoloader>
-                </observers>
-            </resource_get_tablename>
-        </events>
     </crontab>
 </config>
