@@ -78,6 +78,8 @@ class Tritac_ChannelEngine_Model_Observer
             if(is_null($orders) || $orders->count() == 0)
                 continue;
 
+            Mage::log("Received {$orders->count()} orders from ChannelEngine.");
+
             foreach($orders as $order) {
 
                 $billingAddress = $order->getBillingAddress();
@@ -159,9 +161,7 @@ class Tritac_ChannelEngine_Model_Observer
                 );
 
                 // Register shipping cost. See Tritac_ChannelEngine_Model_Carrier_Channelengine::collectrates();
-                if(floatval($order->getShippingCostsInclVat()) >= 0) {
-                    Mage::register('channelengine_shipping_amount', floatval($order->getShippingCostsInclVat()));
-                }
+                Mage::register('channelengine_shipping_amount', floatval($order->getShippingCostsInclVat()));
 
                 $quote->getBillingAddress()
                     ->addData($billingData);
@@ -298,7 +298,7 @@ class Tritac_ChannelEngine_Model_Observer
                 $this->_helper->__("Tracking information can not be empty")
             );
             throw new Exception(
-                $this->_helper->__("Cannot save shipment without tracking information.")
+                $this->_helper->__("Cannot save shipment without tracking information. (CE #" . $channelOrderId . ")")
             );
         }
 

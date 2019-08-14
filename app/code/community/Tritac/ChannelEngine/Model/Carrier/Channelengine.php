@@ -27,8 +27,8 @@ class Tritac_ChannelEngine_Model_Carrier_Channelengine
 
         if(Mage::registry('channelengine_shipping_amount')) {
             $shippingPrice = Mage::registry('channelengine_shipping_amount');
-            Mage::unregister('channelengine_shipping_amount');
         }
+        Mage::unregister('channelengine_shipping_amount');
 
 
         $method = Mage::getModel('shipping/rate_result_method');
