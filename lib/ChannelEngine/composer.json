@@ -1,5 +1,5 @@
 {
     "require": {
-        "channelengine/api-client": "dev-master"
+        "channelengine/api-client-php": "^2.1"
     }
 }
