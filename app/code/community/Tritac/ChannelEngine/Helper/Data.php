@@ -38,6 +38,18 @@ class Tritac_ChannelEngine_Helper_Data extends Mage_Core_Helper_Abstract {
     /**
      * Get extension general config
      *
+     * @return bool
+     */
+    public function isDevelopment()
+    {
+        $machines = array('tritac-ssd16');
+        $machine = gethostname();
+        return in_array($machine, $machines);
+    }
+
+    /**
+     * Get extension general config
+     *
      * @return array
      */
     public function getGeneralConfig()
