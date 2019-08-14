@@ -1,0 +1,55 @@
+[
+    {
+        "name": "channelengine/api-client",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/channelengine/api-client-php.git",
+            "reference": "063843e3c7576a507f7de661bb105ac2a9e57767"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/channelengine/api-client-php/zipball/063843e3c7576a507f7de661bb105ac2a9e57767",
+            "reference": "063843e3c7576a507f7de661bb105ac2a9e57767",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "ext-json": "*",
+            "ext-mbstring": "*",
+            "php": ">=5.4"
+        },
+        "require-dev": {
+            "friendsofphp/php-cs-fixer": "~1.12",
+            "phpunit/phpunit": "~4.8",
+            "satooshi/php-coveralls": "~1.0",
+            "squizlabs/php_codesniffer": "~2.6"
+        },
+        "time": "2017-04-12T09:44:32+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "ChannelEngine\\ApiClient\\": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "proprietary"
+        ],
+        "authors": [
+            {
+                "name": "Swagger and contributors",
+                "homepage": "https://github.com/swagger-api/swagger-codegen"
+            }
+        ],
+        "homepage": "http://swagger.io",
+        "keywords": [
+            "api",
+            "php",
+            "sdk",
+            "swagger"
+        ]
+    }
+]
