@@ -23,27 +23,27 @@ class Tritac_ChannelEngine_Model_Carrier_Channelengine
 
         $result = Mage::getModel('shipping/rate_result');
 
-        $shippingPrice = false;
+        $shippingPrice = 0;
 
         if(Mage::registry('channelengine_shipping_amount')) {
             $shippingPrice = Mage::registry('channelengine_shipping_amount');
             Mage::unregister('channelengine_shipping_amount');
         }
 
-        if ($shippingPrice !== false) {
-            $method = Mage::getModel('shipping/rate_result_method');
 
-            $method->setCarrier($this->_code);
-            $method->setCarrierTitle($this->getConfigData('title'));
+        $method = Mage::getModel('shipping/rate_result_method');
 
-            $method->setMethod($this->_code);
-            $method->setMethodTitle($this->getConfigData('name'));
+        $method->setCarrier($this->_code);
+        $method->setCarrierTitle($this->getConfigData('title'));
 
-            $method->setPrice($shippingPrice);
-            $method->setCost($shippingPrice);
+        $method->setMethod($this->_code);
+        $method->setMethodTitle($this->getConfigData('name'));
 
-            $result->append($method);
-        }
+        $method->setPrice($shippingPrice);
+        $method->setCost($shippingPrice);
+
+        $result->append($method);
+
 
         return $result;
     }
