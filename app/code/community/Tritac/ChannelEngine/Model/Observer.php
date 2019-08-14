@@ -162,6 +162,9 @@ class Tritac_ChannelEngine_Model_Observer
 
                 // Register shipping cost. See Tritac_ChannelEngine_Model_Carrier_Channelengine::collectrates();
                 Mage::register('channelengine_shipping_amount', floatval($order->getShippingCostsInclVat()));
+                // Set this value to make sure ChannelEngine requested the rates and not the frontend
+                // because the shipping method has a fallback on 0,- and this will make it show up on the frontend
+                Mage::register('channelengine_shipping', true); 
 
                 $quote->getBillingAddress()
                     ->addData($billingData);

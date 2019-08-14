@@ -21,6 +21,12 @@ class Tritac_ChannelEngine_Model_Carrier_Channelengine
             return false;
         }
 
+        // Check if the rates were requested by ChannelEngine and not by the frontend
+        if(!Mage::registry('channelengine_shipping')){
+            return false;
+        }
+        Mage::unregister('channelengine_shipping');
+
         $result = Mage::getModel('shipping/rate_result');
 
         $shippingPrice = 0;
@@ -46,6 +52,11 @@ class Tritac_ChannelEngine_Model_Carrier_Channelengine
 
 
         return $result;
+    }
+
+    public function isActive()
+    {
+        
     }
 
     public function getAllowedMethods()
