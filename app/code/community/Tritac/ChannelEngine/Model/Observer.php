@@ -115,6 +115,12 @@ class Tritac_ChannelEngine_Model_Observer
                         // Add product to quote
                         try {
                             $_quoteItem = $quote->addProduct($_product, $params);
+                            
+                            if(is_string($_quoteItem)) {
+                                // Magento sometimes returns a string when the method fails. -_-"
+                                Mage::throwException('Failed to create quote item: ' . $_quoteItem);
+                            }
+
                             $_quoteItem->setChannelengineOrderLineId($item->getId());
 
                         } catch (Exception $e) {
@@ -270,13 +276,14 @@ class Tritac_ChannelEngine_Model_Observer
      * @return bool
      * @throws Exception
      */
-    public function saveShipment(Varien_Event_Observer $observer)
+    public function salesOrderShipmentTrackSaveAfter(Varien_Event_Observer $observer)
     {
         $event = $observer->getEvent();
         /** @var $_shipment Mage_Sales_Model_Order_Shipment */
         $_shipment = $event->getShipment();
         /** @var $_order Mage_Sales_Model_Order */
         $_order = $_shipment->getOrder();
+        
         $storeId = $_order->getStoreId();
         $channelOrder = Mage::getModel('channelengine/order')->loadByOrderId($_order->getId());
         $channelOrderId = $channelOrder->getChannelOrderId();
