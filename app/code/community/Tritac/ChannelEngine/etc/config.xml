@@ -2,17 +2,12 @@
 <config>
     <modules>
         <Tritac_ChannelEngine>
-            <version>2.1.0</version>
+            <version>2.1.2</version>
         </Tritac_ChannelEngine>
     </modules>
 
     <global>
         <blocks>
-            <adminhtml>
-                <rewrite>
-                    <sales_order_grid>Tritac_ChannelEngine_Block_Sales_Order_Grid</sales_order_grid>
-                </rewrite>
-            </adminhtml>
             <channelengine>
                 <class>Tritac_ChannelEngine_Block</class>
             </channelengine>
@@ -124,6 +119,24 @@
                     </shipmentsave>
                 </observers>
             </sales_order_shipment_save_after>
+            <core_block_abstract_prepare_layout_before>
+                <observers>
+                    <ordergrid_column_append>
+                        <type>singleton</type>
+                        <class>channelengine/observer</class>
+                        <method>appendCustomColumnToOrderGrid</method>
+                    </ordergrid_column_append>
+                </observers>
+            </core_block_abstract_prepare_layout_before>
+            <sales_order_grid_collection_load_before>
+                <observers>
+                    <prepare_order_grid_collection>
+                        <type>singleton</type>
+                        <class>channelengine/observer</class>
+                        <method>prepareOrderGridCollection</method>
+                    </prepare_order_grid_collection>
+                </observers>
+            </sales_order_grid_collection_load_before>
         </events>
     </adminhtml>
 
