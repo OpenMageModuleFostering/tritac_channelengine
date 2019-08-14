@@ -18,9 +18,9 @@ class Tritac_ChannelEngineApiClient_Models_Order extends Tritac_ChannelEngineApi
     protected $orderDate;
     protected $createdAt;
     protected $updatedAt;
-		protected $channelId;
-		protected $channelOrderNo;
-		protected $channelCustomerNo;
+	protected $channelId;
+	protected $channelOrderNo;
+	protected $channelCustomerNo;
     protected $billingAddress;
     protected $cancellations;
     protected $channelName;
@@ -28,7 +28,7 @@ class Tritac_ChannelEngineApiClient_Models_Order extends Tritac_ChannelEngineApi
     protected $canShipPartialOrderLines;
 
     protected $merchantId;
-		protected $merchantOrderNo;
+	protected $merchantOrderNo;
     protected $shippingCostsInclVat;
     protected $shippingCostsVat;
     protected $subTotalInclVat;
@@ -76,14 +76,14 @@ class Tritac_ChannelEngineApiClient_Models_Order extends Tritac_ChannelEngineApi
     function setUpdatedAt( $updatedAt) { $this->updatedAt = $updatedAt; }
     function getUpdatedAt() { return $this->updatedAt; }
 
-		function setChannelId($channelId) { $this->channelId = $channelId; }
-		function getChannelId() { return $this->channelId; }
+	function setChannelId($channelId) { $this->channelId = $channelId; }
+	function getChannelId() { return $this->channelId; }
 
-		function setChannelOrderNo($channelOrderNo) { $this->channelOrderNo = $channelOrderNo; }
-		function getChannelOrderNo() { return $this->channelOrderNo; }
+	function setChannelOrderNo($channelOrderNo) { $this->channelOrderNo = $channelOrderNo; }
+	function getChannelOrderNo() { return $this->channelOrderNo; }
 
-		function setChannelCustomerNo($channelCustomerNo) { $this->channelCustomerNo = $channelCustomerNo; }
-		function getChannelCustomerNo() { return $this->channelCustomerNo; }
+	function setChannelCustomerNo($channelCustomerNo) { $this->channelCustomerNo = $channelCustomerNo; }
+	function getChannelCustomerNo() { return $this->channelCustomerNo; }
 
     function setBillingAddress(Tritac_ChannelEngineApiClient_Models_Address $billingAddress) { $this->billingAddress = $billingAddress; }
     function getBillingAddress() { return $this->billingAddress; }
@@ -103,8 +103,8 @@ class Tritac_ChannelEngineApiClient_Models_Order extends Tritac_ChannelEngineApi
     function setMerchantId($merchantId) { $this->merchantId = $merchantId; }
     function getMerchantId() { return $this->merchantId; }
 
-        function setMerchantOrderNo($merchantOrderNo) { $this->merchantOrderNo = $merchantOrderNo; }
-        function getMerchantOrderNo() { return $this->merchantOrderNo; }
+    function setMerchantOrderNo($merchantOrderNo) { $this->merchantOrderNo = $merchantOrderNo; }
+    function getMerchantOrderNo() { return $this->merchantOrderNo; }
 
     function setShippingCostsInclVat($shippingCostsInclVat) { $this->shippingCostsInclVat = $shippingCostsInclVat; }
     function getShippingCostsInclVat() { return $this->shippingCostsInclVat; }
