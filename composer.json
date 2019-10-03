@@ -1,7 +1,7 @@
 {
-    "name": "OpenMageModuleFostering\/Tritac_ChannelEngine",
+    "name": "openmage-module-fostering\/tritac_channelengine",
     "type": "magento-module",
-    "license": "Open-Software-License-(OSL)",
+    "license": "OSL-3.0",
     "homepage": "",
     "description": "Connect your Magento shop to the ChannelEngine platform.",
     "authors": [
