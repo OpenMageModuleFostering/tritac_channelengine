@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Tritac_ChannelEngine",
+    "name": "OpenMageModuleFostering\/Tritac_ChannelEngine",
     "type": "magento-module",
     "license": "Open-Software-License-(OSL)",
     "homepage": "",
     "description": "Connect your Magento shop to the ChannelEngine platform.",
     "authors": [
-    {
-        "name": "Christiaan de Ridder",
-        "email": "support@channelengine.com"
-    }
-],
+        {
+            "name": "Christiaan de Ridder",
+            "email": "support@channelengine.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
